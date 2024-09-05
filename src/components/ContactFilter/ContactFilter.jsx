@@ -17,7 +17,7 @@ class ContactFilter extends Component {
                         id="filter"
                         required
                     />
-                </form>
+                </form>;
             </>
         )
     }
