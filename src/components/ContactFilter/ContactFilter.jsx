@@ -9,7 +9,7 @@ class ContactFilter extends Component {
         return (
             <>
                 <form>
-                    <label for="filter">Find contact by name</label>
+                    <label htmlFor="filter">Find contact by name</label>
                     <input onChange={this.filterName}
                         type="text"
                         name="filter"

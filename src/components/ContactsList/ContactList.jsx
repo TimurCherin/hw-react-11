@@ -1,13 +1,15 @@
 import React from "react";
+import { ListWrap, ListBtn } from "./ContactList.styled";
 
-function ContactList({ contacts }) {
+function ContactList({ contacts, delContact }) {
     return (
         contacts ?
-            contacts.map((obj) => {
-                return (<div key={1}>
-                    <p>{obj.name}</p>
-                    <p>{obj.phone}</p>
-                </div>)
+            contacts.map(({ name, phone, id }) => {
+                return (<ListWrap key={id}>
+                    <p>{name}</p>
+                    <p>{phone}</p>
+                    <ListBtn onClick={() => delContact(id)}>Del</ListBtn>
+                </ListWrap>)
             }) : ""
     );
 }

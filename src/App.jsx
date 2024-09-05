@@ -32,16 +32,22 @@ class App extends Component {
     this.setState({ filter: filterValue })
   }
 
+  delContact = (id) => {
+    this.setState(prevState => {
+      const newContacts = prevState.contacts.filter((obj) => obj.id !== id)
+      return ({ contacts: newContacts })
+    })
+  }
+
   render() {
     const filteredContacts = this.state.contacts.filter((contact) => contact.name.toLocaleLowerCase().includes(this.state.filter.toLocaleLowerCase()))
     const allContacts = this.state.filter ? filteredContacts : this.state.contacts
-    console.log(allContacts)
     return (
       <>
         <ContactForm addContact={this.addContact}></ContactForm>
         <h2>Contacts</h2>
         <ContactFilter addFilter={this.addFilter}></ContactFilter>
-        <ContactList contacts={allContacts}></ContactList>
+        <ContactList contacts={allContacts} delContact={this.delContact}></ContactList>
 
       </>
     )

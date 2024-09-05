@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { nanoid } from "nanoid";
 import { FormWrap } from "./ContactForm.styled";
 
@@ -20,7 +20,7 @@ function ContactForm({ addContact }) {
             <FormWrap>
                 <form onSubmit={handleSubmit}>
                     <h2>Phonebook</h2>
-                    <label for="nameId">Name</label>
+                    <label htmlFor="nameId">Name</label>
                     <input
                         type="text"
                         name="name"
@@ -29,7 +29,7 @@ function ContactForm({ addContact }) {
                         title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
                         required
                     />
-                    <label for="numberId">Number</label>
+                    <label htmlFor="numberId">Number</label>
                     <input
                         type="tel"
                         name="number"
