@@ -6,16 +6,21 @@ import ContactFilter from './components/ContactFilter/ContactFilter';
 
 class App extends Component {
   state = {
-    contacts: [{
-      name: "Kiril",
-      phone: 322112356,
-      id: "1",
-    }, {
-      name: "Stepan",
-      phone: 123124234,
-      id: "2",
-    },],
+    contacts: [],
     filter: ''
+  }
+
+  componentDidMount() {
+    const savedContacts = localStorage.getItem('contacts');
+    if (savedContacts) {
+      this.setState({ contacts: JSON.parse(savedContacts) });
+    }
+  }
+
+  componentDidUpdate(prevState) {
+    if (prevState.contacts !== this.state.contacts) {
+      localStorage.setItem('contacts', JSON.stringify(this.state.contacts));
+    }
   }
 
   addContact = (contact) => {
